@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/roomListFragment">
+
+    <fragment
+        android:id="@+id/roomListFragment"
+        android:name="com.example.lr2.ui.RoomListFragment"
+        android:label="Список номеров"
+        tools:layout="@layout/fragment_room_list">
+        <action
+            android:id="@+id/action_roomListFragment_to_roomDetailsFragment"
+            app:destination="@id/roomDetailsFragment" />
+        <action
+            android:id="@+id/action_roomListFragment_to_addRoomFragment"
+            app:destination="@id/addRoomFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/roomDetailsFragment"
+        android:name="com.example.lr2.ui.RoomDetailsFragment"
+        android:label="Подробности номера"
+        tools:layout="@layout/fragment_room_details">
+        <argument
+            android:name="roomId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_roomDetailsFragment_to_editRoomFragment"
+            app:destination="@id/editRoomFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editRoomFragment"
+        android:name="com.example.lr2.ui.EditRoomFragment"
+        android:label="Редактирование номер"
+        tools:layout="@layout/fragment_edit_room">
+        <argument
+            android:name="room"
+            app:argType="com.example.lr2.model.Room" />
+    </fragment>
+    <fragment
+        android:id="@+id/addRoomFragment"
+        android:name="com.example.lr2.ui.AddRoomFragment"
+        android:label="Добавление номера"
+        tools:layout="@layout/fragment_add_room" />
+</navigation>
